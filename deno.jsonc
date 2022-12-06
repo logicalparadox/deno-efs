@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "build-test": "deno run -A ./efs.ts quick \"./test_assets/*.txt\" -o ./test_assets/assets.ts",
+    "test": "deno test -A",
+    "upgrade-deps": "deno run -A https://deno.land/x/udd/main.ts \"*.ts\""
+  },
+  "fmt": {
+    "options": {
+      "lineWidth": 120,
+      "indentWidth": 2
+    }
+  }
+}
