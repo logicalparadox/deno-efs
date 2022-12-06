@@ -40,7 +40,7 @@ export async function* generateAssetReferences(
 
   // iterate globs then files for each glob
   for (const glob of globs) {
-    for await (const file of expandGlob(glob, { root: cwd })) {
+    for await (const file of expandGlob(glob, { root: cwd, globstar: true })) {
       if (
         file.isFile &&
         !file.isSymlink &&
