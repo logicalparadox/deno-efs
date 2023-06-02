@@ -1,12 +1,12 @@
 import {
   assert,
   assertEquals,
-} from "https://deno.land/std@0.167.0/testing/asserts.ts";
+} from "https://deno.land/std@0.190.0/testing/asserts.ts";
 import {
   dirname,
   fromFileUrl,
   resolve,
-} from "https://deno.land/std@0.167.0/path/mod.ts";
+} from "https://deno.land/std@0.190.0/path/mod.ts";
 import {
   ArchiveReader,
   generateAssetReferences,

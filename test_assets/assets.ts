@@ -1,3 +1,4 @@
+// deno-fmt-ignore-file
 export const assets = [
   {
     path: "/test_assets/asset_1.txt",

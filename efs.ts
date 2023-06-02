@@ -1,9 +1,9 @@
-import { parse } from "https://deno.land/std@0.167.0/encoding/yaml.ts";
-import { resolve } from "https://deno.land/std@0.167.0/path/mod.ts";
-import { Command } from "https://deno.land/x/cliffy@v0.25.5/command/mod.ts";
-import { HelpCommand } from "https://deno.land/x/cliffy@v0.25.5/command/help/mod.ts";
-import * as optic from "https://deno.land/x/optic@1.3.5/mod.ts";
-import { TokenReplacer } from "https://deno.land/x/optic@1.3.5/formatters/tokenReplacer.ts";
+import { parse } from "https://deno.land/std@0.190.0/yaml/mod.ts";
+import { resolve } from "https://deno.land/std@0.190.0/path/mod.ts";
+import { Command } from "https://deno.land/x/cliffy@v0.25.7/command/mod.ts";
+import { HelpCommand } from "https://deno.land/x/cliffy@v0.25.7/command/help/mod.ts";
+import * as optic from "https://deno.land/x/optic@1.3.7/mod.ts";
+import { TokenReplacer } from "https://deno.land/x/optic@1.3.7/formatters/tokenReplacer.ts";
 import { generateAssetReferences, IAssetReference } from "./mod.ts";
 
 interface IConfigFile {
@@ -70,7 +70,9 @@ function createFile(files: IAssetReference[], exportName = "assets"): string {
   },`
   );
 
-  return `export const ${exportName} = [\n${fileTxt.join("\n")}\n];\n`;
+  return `// deno-fmt-ignore-file\nexport const ${exportName} = [\n${fileTxt.join(
+    "\n"
+  )}\n];\n`;
 }
 
 async function buildFromParams(params: {

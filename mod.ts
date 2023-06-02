@@ -1,6 +1,6 @@
-import * as base64 from "https://deno.land/std@0.167.0/encoding/base64.ts";
-import { expandGlob } from "https://deno.land/std@0.167.0/fs/mod.ts";
-import * as path from "https://deno.land/std@0.167.0/path/mod.ts";
+import * as base64 from "https://deno.land/std@0.190.0/encoding/base64.ts";
+import { expandGlob } from "https://deno.land/std@0.190.0/fs/mod.ts";
+import * as path from "https://deno.land/std@0.190.0/path/mod.ts";
 
 const { globToRegExp, relative } = path;
 const { fromFileUrl, toFileUrl } = path.posix;
