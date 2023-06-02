@@ -189,7 +189,7 @@ Access assets through an embedded file-system from within deployed apps.
 const cmd = new Command()
   .name("efs")
   .description(description)
-  .version("0.1.0")
+  .version("0.1.1")
   .arguments("<command>")
   .command("help", new HelpCommand())
   .command("build", buildCommand)
