@@ -2,7 +2,7 @@ import { parse } from "https://deno.land/std@0.190.0/yaml/mod.ts";
 import { resolve } from "https://deno.land/std@0.190.0/path/mod.ts";
 import { Command } from "https://deno.land/x/cliffy@v0.25.7/command/mod.ts";
 import { HelpCommand } from "https://deno.land/x/cliffy@v0.25.7/command/help/mod.ts";
-import * as optic from "https://deno.land/x/optic@1.3.7/mod.ts";
+import * as optic from "jsr:@onjara/optic";
 import { TokenReplacer } from "https://deno.land/x/optic@1.3.7/formatters/tokenReplacer.ts";
 import { generateAssetReferences, IAssetReference } from "./mod.ts";
 
@@ -135,7 +135,9 @@ const buildCommand = new Command()
     try {
       validateConfig(config as unknown as Record<string, unknown>);
     } catch (err) {
-      console.error(`[${err.name}]: ${err.message} (${configPath})`);
+      console.error(
+        `[${(err as Error).name}]: ${(err as Error).message} (${configPath})`
+      );
       Deno.exit(1);
     }
 
@@ -198,5 +200,5 @@ const cmd = new Command()
 try {
   await cmd.parse(Deno.args);
 } catch (err) {
-  log.error(err.message);
+  log.error((err as Error).message);
 }
